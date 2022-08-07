@@ -1,0 +1,52 @@
+$breakpoints: (
+	xl: 1280px,
+	lg: 1024px,
+	md: 768px,
+	sm: 640px,
+	xs: 480px
+) !default;
+
+@mixin media($min: null, $max: null) {
+	$min-type: type-of($min);
+	$max-type: type-of($max);
+
+	@if $min-type == "string" {
+		@if map-has-key($breakpoints, $min) {
+			$min: "(min-width: #{map-get($breakpoints, $min)})";
+		} @else {
+			@warn "Unfortunately, no value could be retrieved from '#{$min}' " +
+            "Please make sure it is defined in '$breakpoints' map.";
+		}
+	} @else if $min-type == "number" {
+		$min: "(min-width: #{$min})";
+	}
+
+	@if $max-type == "string" {
+		@if map-has-key($breakpoints, $max) {
+			$max: "(max-width: #{map-get($breakpoints, $max) - 1})";
+		} @else {
+			@warn "Unfortunately, no value could be retrieved from '#{$max}'. " +
+            "Please make sure it is defined in '$breakpoints' map.";
+		}
+	} @else if $max-type == "number" {
+		$max: "(max-width: #{$max})";
+	}
+
+	$query: false;
+
+	@if $min and $max {
+		$query: "#{$min} and #{$max}";
+	} @else if $min {
+		$query: "#{$min}";
+	} @else if $max {
+		$query: "#{$max}";
+	}
+
+	@if not $query {
+		@warn "Invalid media query";
+	} @else {
+		@media #{$query} {
+			@content;
+		}
+	}
+}

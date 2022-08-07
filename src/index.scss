@@ -1,0 +1,10 @@
+@import "./styles/reset";
+@import "./styles/mixins";
+@import "./styles/vars";
+
+body {
+	font-family: -apple-system, BlinkMacSystemFont, San Francisco, Helvetica Neue,
+		Helvetica, Ubuntu, Roboto, Noto, Segoe UI, Arial, sans-serif;
+	overflow: hidden scroll;
+	color: $black;
+}
