@@ -1,0 +1,26 @@
+@import "../../styles/vars";
+
+.button {
+	padding: 0.47em 0.78em;
+	border-radius: 0.4em;
+	color: $gray;
+	background-color: #fff;
+	white-space: nowrap;
+	transition: 0.1s;
+}
+
+.outlined {
+	border: 1px solid #d1d1d1;
+	&:hover {
+		color: $black;
+		border-color: $gray;
+	}
+}
+
+.contained {
+	background-color: #ffffffe6;
+	&:hover {
+		color: $black;
+		background-color: #fff;
+	}
+}

@@ -1,0 +1,20 @@
+@import "../../styles/vars";
+
+.footer {
+    padding: 5em 0;
+    text-align: center;
+}
+
+.logo {
+    transform: rotate(180deg);
+    svg {
+        width: 2em;
+        height: 2em;
+    }
+}
+
+.text {
+    font-size: 0.93em;
+    margin: 1em 0;
+    color: $gray;
+}

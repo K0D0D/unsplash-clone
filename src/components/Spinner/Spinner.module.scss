@@ -1,0 +1,54 @@
+@import "../../styles/vars";
+
+.container {
+	display: flex;
+	justify-content: center;
+	padding-top: 3em;
+	padding-bottom: 50em;
+	animation: pulsation 3s infinite;
+}
+
+@keyframes pulsation {
+	0% {
+		opacity: 1;
+	}
+	25% {
+		opacity: 0.3;
+	}
+	50% {
+		opacity: 1;
+	}
+	75% {
+		opacity: 0.3;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.spinner {
+	width: 2em;
+	height: 2em;
+	border: 0.25em solid $light-gray;
+	border-radius: 100%;
+	border-right-color: $gray;
+	animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	25% {
+		transform: rotate(90deg);
+	}
+	50% {
+		transform: rotate(180deg);
+	}
+	75% {
+		transform: rotate(270deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

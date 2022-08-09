@@ -1,0 +1,16 @@
+.text {
+    width: 100%;
+    height: 1.5em;
+}
+
+.rect {
+    width: 100%;
+    height: 20em;
+}
+
+.circle {
+    width: 8em;
+    height: 8em;
+    border-radius: 50%;
+    overflow: hidden;
+}

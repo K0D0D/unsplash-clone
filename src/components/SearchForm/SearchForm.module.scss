@@ -1,0 +1,72 @@
+@import "../../styles/vars";
+
+.form {
+    display: flex;
+    flex: 1 1 0;
+    color: $gray;
+    background-color: #eee;
+    border: 1px solid transparent;
+    border-radius: 1.7em;
+    transition: border-color 0.1s, background-color 0.1s;
+    &:hover {
+        border-color: $light-gray;
+    }
+    &:focus-within {
+        background-color: #fff;
+        border-color: $light-gray;
+    }
+}
+
+.searchBtn {
+    padding: 0.71em 0 0.71em 1em;
+    svg {
+        width: 1.3em;
+        height: 1.3em;
+    }
+}
+
+.searchBtn,
+.clearBtn,
+.imageBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    svg {
+        transition: 0.1s;
+    }
+    &:hover svg {
+        color: $black;
+    }
+}
+
+.input {
+    width: 100%;
+    padding-left: 0.71em;
+    color: $black;
+}
+
+.clearBtn {
+    padding: 0 1em;
+    position: relative;
+    &:after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 43%;
+        border-left: 1px solid #c4c4c4;
+    }
+    svg {
+        width: 1.1em;
+        height: 1.1em;
+    }
+}
+
+.imageBtn {
+    padding: 0 1em;
+    svg {
+        width: 1.43em;
+        height: 1.43em;
+    }
+}

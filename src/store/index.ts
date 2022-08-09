@@ -1,7 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
+import editorialPhotos from "./editorialPhotos/editorialPhotosSlice";
 
 const store = configureStore({
-    reducer: {}
+	reducer: {
+		editorialPhotos
+	}
 });
 
 export type RootState = ReturnType<typeof store.getState>;
