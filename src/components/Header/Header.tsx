@@ -5,6 +5,7 @@ import styles from "./Header.module.scss";
 import SearchForm from "../SearchForm/SearchForm";
 import Button from "../Button/Button";
 import { ChangeEvent, FormEvent, useState } from "react";
+import Topics from "../Topics/Topics";
 
 const Header = () => {
     const [inputValue, setInputValue] = useState<string>("");
@@ -61,6 +62,7 @@ const Header = () => {
 					<FiMenu />
 				</button>
 			</nav>
+			<Topics />
         </header>
     );
 };

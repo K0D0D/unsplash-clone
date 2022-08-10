@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import editorialPhotos from "./editorialPhotos/editorialPhotosSlice";
+import topic from "./topic";
 
 const store = configureStore({
 	reducer: {
-		editorialPhotos
+		editorialPhotos,
+		topic
 	}
 });
 

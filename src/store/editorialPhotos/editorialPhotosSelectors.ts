@@ -1,8 +1,10 @@
+import { RootState } from '..';
 import { IEditorialPhotosState } from './editorialPhotosSlice';
 import { createSelector } from "@reduxjs/toolkit";
-import { RootState } from "../index";
 
-const selectEditorialPhotos = (state: RootState): IEditorialPhotosState => state.editorialPhotos;
+const selectEditorialPhotos = (state: RootState): IEditorialPhotosState => (
+    state.editorialPhotos
+);
 
 export const selectEditorialPhotosData = createSelector(
     [selectEditorialPhotos],

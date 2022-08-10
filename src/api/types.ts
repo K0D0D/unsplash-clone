@@ -23,3 +23,8 @@ export interface IUser {
 		large: string;
 	};
 }
+
+export interface ITopic {
+	slug: string;
+	title: string;
+}

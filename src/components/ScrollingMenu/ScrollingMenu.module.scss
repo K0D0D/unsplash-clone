@@ -1,0 +1,38 @@
+@import "../../styles/vars";
+
+.wrapper {
+	position: relative;
+	overflow: hidden;
+    justify-content: center;
+}
+
+.container {
+    -ms-overflow-style: none;
+	scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.arrow {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	height: 100%;
+    display: flex;
+    align-items: center;
+	z-index: 10;
+    background-color: #fff;
+    box-shadow: 0 0 6.43em 6.43em #fff;
+    transition: 0.1s;
+    &:hover {
+        color: $black;
+    }
+	&:disabled {
+		display: none;
+	}
+    svg {
+        width: 1.2em;
+        height: 1.2em;
+    }
+}
