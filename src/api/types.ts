@@ -28,3 +28,17 @@ export interface ITopic {
 	slug: string;
 	title: string;
 }
+
+export interface ICollection {
+	id: string;
+	title: string;
+	total_photos: number;
+	user: IUser;
+	preview_photos: IPreviewPhoto[];
+}
+
+export type IPreviewPhoto = Pick<IPhoto, "id" | "blur_hash" | "urls">;
+
+export interface IUserPreview extends IUser {
+	photos: IPreviewPhoto[];
+}

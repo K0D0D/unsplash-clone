@@ -2,9 +2,11 @@ import SearchForm from "../SearchForm/SearchForm";
 import Wrapper from "../Wrapper/Wrapper";
 import styles from "./Hero.module.scss";
 import { useState, ChangeEvent, FormEvent } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
 	const [inputValue, setInputValue] = useState<string>("");
+	const navigate = useNavigate();
 
 	const onChange = (e: ChangeEvent<HTMLInputElement>) => {
 		setInputValue(e.target.value);
@@ -16,6 +18,14 @@ const Hero = () => {
 
 	const onSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
+
+		const query = encodeURIComponent(inputValue.toLowerCase().trim());
+
+		if (query)
+			navigate({
+				pathname: "/s/photos/",
+				search: `q=${query}`
+			});
 	};
 
 	return (

@@ -1,0 +1,58 @@
+@import "../../styles/vars";
+
+.link {
+    &:hover .images {
+        opacity: 0.8;
+    }
+}
+
+.images {
+    position: relative;
+    padding-bottom: 70%;
+    margin-bottom: 1em;
+    border-radius: 0.375em;
+    overflow: hidden;
+    transition: 0.1s;
+}
+
+.grid {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    gap: 2px;
+}
+
+.imageContainer {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: #0000000d;
+    &:first-child {
+        grid-row: span 2;
+    }
+}
+
+.image, .blur {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.title {
+    font-size: 1.125em;
+    font-weight: 600;
+}
+
+.info {
+    font-size: 0.875em;
+    color: $gray;
+    margin-top: 0.7em;
+    a:hover {
+        text-decoration: underline;
+    }
+}

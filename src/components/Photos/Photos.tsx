@@ -5,6 +5,7 @@ import Spinner from "../Spinner/Spinner";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { IPhoto } from "../../api/types";
 import PhotoSkeleton from "../Photo/PhotoSkeleton";
+import NoResults from "../NoResults/NoResults";
 
 const masonryBreakpoints = {
 	default: 3,
@@ -55,6 +56,7 @@ const Photos = ({ photos, isLoading, pageSize, hasMore, fetchNext }: IProps) => 
 					: isLoading &&
 					  Array.from(Array(pageSize), (_, i) => <PhotoSkeleton key={i} />)}
 			</Masonry>
+			{!photos?.length && !isLoading && <NoResults />}
 		</InfiniteScroll>
 	</>
 );

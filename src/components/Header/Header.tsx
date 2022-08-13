@@ -1,29 +1,54 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import { SiUnsplash } from "react-icons/si";
 import { FiMenu } from "react-icons/fi";
 import styles from "./Header.module.scss";
 import SearchForm from "../SearchForm/SearchForm";
 import Button from "../Button/Button";
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useLayoutEffect, useState } from "react";
 import Topics from "../Topics/Topics";
+import SearchNav from "../SearchNav/SearchNav";
 
 const Header = () => {
-    const [inputValue, setInputValue] = useState<string>("");
+	const [inputValue, setInputValue] = useState<string>("");
+	const [isItSearchPage, setIsItSearchPage] = useState<boolean>(false);
+	const [searchParams] = useSearchParams();
+	const navigate = useNavigate();
+	const { pathname } = useLocation();
 
-    const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setInputValue(e.target.value);
-    };
+	useLayoutEffect(() => {
+		setIsItSearchPage(pathname.includes("/s/"));
 
-    const onClearBtnClick = () => {
-        setInputValue("");
-    };
+		if (pathname === "/") return setInputValue("");
 
-    const onSubmit = (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-    };
+		if (isItSearchPage) {
+			const query = searchParams.get("q") || "";
 
-    return (
-        <header className={styles.header}>
+			setInputValue(query);
+		}
+	}, [pathname, isItSearchPage, searchParams]);
+
+	const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+		setInputValue(e.target.value);
+	};
+
+	const onClearBtnClick = () => {
+		setInputValue("");
+	};
+
+	const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+
+		const query = encodeURIComponent(inputValue.toLowerCase().trim());
+
+		if (query)
+			navigate({
+				pathname: "/s/photos/",
+				search: `q=${query}`
+			});
+	};
+
+	return (
+		<header className={styles.header}>
 			<nav className={styles.nav}>
 				<NavLink className={styles.logo} to="/">
 					<SiUnsplash />
@@ -62,9 +87,9 @@ const Header = () => {
 					<FiMenu />
 				</button>
 			</nav>
-			<Topics />
-        </header>
-    );
+			{isItSearchPage ? <SearchNav /> : <Topics />}
+		</header>
+	);
 };
 
 export default Header;

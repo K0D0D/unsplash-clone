@@ -1,4 +1,4 @@
-import { IPhoto } from './../../api/types';
+import { IPhoto } from "../../api/types";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import api, { apiKey } from "../../api";
 

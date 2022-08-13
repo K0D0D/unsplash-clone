@@ -1,0 +1,22 @@
+.top {
+    padding-top: 10.5em;
+    padding-bottom: 3em;
+}
+
+.title {
+    font-size: 1.75em;
+    text-transform: capitalize;
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: 1.125em;
+    font-weight: 700;
+    span {
+        font-weight: 400;
+    }
+}
+
+.bottom {
+    margin-top: 5.55em;
+}
