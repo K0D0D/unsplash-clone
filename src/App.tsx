@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation, useSearchParams } from "react-router-dom";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import useScrollToTop from "./hooks/useScrollToTop";
@@ -8,8 +8,10 @@ import TopicPage from "./pages/TopicPage/TopicPage";
 
 const App = () => {
 	const { pathname } = useLocation();
+	const [searchParams] = useSearchParams();
+	const query = searchParams.get("q") || "";
 
-	useScrollToTop([pathname]);
+	useScrollToTop([pathname, query]);
 
 	return (
 		<>
