@@ -1,6 +1,7 @@
-import { ITopic } from './../../../api/types';
+import { ITopic } from "../../../api/types";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import api, { apiKey } from "../../../api";
+import { toast } from "react-toastify";
 
 export const fetchTopicInfo = createAsyncThunk<ITopic, string>(
 	"topic/info/fetchTopicInfo",
@@ -13,6 +14,8 @@ export const fetchTopicInfo = createAsyncThunk<ITopic, string>(
 			return response.data;
 		} catch (err) {
 			if (err instanceof Error) {
+				toast.error(err.message);
+
 				return rejectWithValue(err.message);
 			}
 

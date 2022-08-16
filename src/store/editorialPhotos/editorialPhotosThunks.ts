@@ -1,6 +1,7 @@
 import { IPhoto } from "../../api/types";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import api, { apiKey } from "../../api";
+import { toast } from "react-toastify";
 
 interface IParams {
 	page: number;
@@ -20,6 +21,8 @@ export const fetchEditorialPhotos = createAsyncThunk<IPhoto[], IParams>(
 			return response.data;
 		} catch (err) {
 			if (err instanceof Error) {
+				toast.error(err.message);
+
 				return rejectWithValue(err.message);
 			}
 
