@@ -39,9 +39,10 @@ const Photos = ({ photos, isLoading, pageSize, hasMore, fetchNext }: IProps) => 
 				{photos?.length
 					? photos.map((photo, index) => (
 							<Photo
+								id={photo.id}
 								width={photo.width}
 								height={photo.height}
-								url={photo.urls.small}
+								urls={photo.urls}
 								color={photo.color}
 								blurhash={photo.blur_hash}
 								alt={photo.alt_description}
