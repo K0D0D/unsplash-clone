@@ -8,3 +8,7 @@ body {
 	overflow: hidden scroll;
 	color: $black;
 }
+
+.ReactModal__Body--open {
+	overflow: hidden;
+}

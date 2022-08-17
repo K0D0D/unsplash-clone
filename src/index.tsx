@@ -4,8 +4,10 @@ import { Provider } from "react-redux";
 import store from "./store";
 import { BrowserRouter as Router } from "react-router-dom";
 import App from "./App";
+import ReactModal from "react-modal";
 
-const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
+const rootElement = document.getElementById("root") as HTMLElement;
+const root = ReactDOM.createRoot(rootElement);
 
 root.render(
 	<Provider store={store}>
@@ -14,3 +16,5 @@ root.render(
 		</Router>
 	</Provider>
 );
+
+ReactModal.setAppElement(rootElement);

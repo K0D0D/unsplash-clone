@@ -2,7 +2,7 @@ import Button from "../Button/Button";
 import styles from "./Photo.module.scss";
 import { BsFillHeartFill, BsPlusLg } from "react-icons/bs";
 import { ImArrowDown2 } from "react-icons/im";
-import { NavLink } from "react-router-dom";
+import { NavLink, useSearchParams } from "react-router-dom";
 import { BlurhashCanvas } from "react-blurhash";
 import { saveAs } from "file-saver";
 
@@ -25,7 +25,15 @@ interface IProps {
 }
 
 const Photo = ({ id, width, height, urls, color, blurhash, alt, user }: IProps) => {
+	const [searchParams, setSearchParams] = useSearchParams();
+	
 	const downloadImage = () => saveAs(urls.full, `${user.username}-${id}-unflash.jpg`);
+
+	const setPhotoIdParam = () => {
+		searchParams.set("photo_id", id);
+
+		setSearchParams(searchParams);
+	};
 
 	return (
 		<div
@@ -36,7 +44,7 @@ const Photo = ({ id, width, height, urls, color, blurhash, alt, user }: IProps) 
 			}}
 		>
 			{blurhash && <BlurhashCanvas className={styles.blur} hash={blurhash} />}
-			<button className={styles.imageBtn}>
+			<button className={styles.imageBtn} onClick={setPhotoIdParam}>
 				<img className={styles.image} src={urls.small} alt={alt || ""} />
 			</button>
 			<header className={styles.header}>

@@ -42,3 +42,21 @@ export type IPreviewPhoto = Pick<IPhoto, "id" | "blur_hash" | "urls">;
 export interface IUserPreview extends IUser {
 	photos: IPreviewPhoto[];
 }
+
+export interface IPhotoDetails extends IPhoto {
+	created_at: string;
+	description: string | null;
+	exif: {
+		name: string | null;
+	};
+	location: {
+		name: string | null;
+	};
+	tags: { title: string }[];
+	related_collections: {
+		total: number;
+		results: ICollection[];
+	};
+	views: number;
+	downloads: number;
+}

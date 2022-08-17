@@ -2,12 +2,14 @@ import { configureStore } from "@reduxjs/toolkit";
 import editorialPhotos from "./editorialPhotos/editorialPhotosSlice";
 import topic from "./topic";
 import search from "./search";
+import photoDetails from "./photoDetails/photoDetailsSlice";
 
 const store = configureStore({
 	reducer: {
 		editorialPhotos,
 		topic,
-		search
+		search,
+		photoDetails
 	}
 });
 

@@ -1,0 +1,47 @@
+@import "../../styles/vars";
+
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(#000, 0.6);
+	z-index: 9999;
+	overflow: auto;
+	color: inherit;
+	cursor: zoom-out;
+}
+
+.content {
+	width: 100%;
+	min-height: 100%;
+	cursor: auto;
+	pointer-events: none;
+}
+
+.inner {
+	width: 100%;
+	padding-bottom: 5em;
+	border-radius: 0.25em;
+	background-color: #fff;
+	pointer-events: all;
+}
+
+.closeBtn {
+	position: fixed;
+	top: 0;
+	left: 0;
+	padding: 0.6em;
+	color: #fff;
+	opacity: 0.8;
+	transition: 0.1s;
+	pointer-events: all;
+	&:hover {
+		opacity: 1;
+	}
+	svg {
+		width: 1.5em;
+		height: 1.5em;
+	}
+}
