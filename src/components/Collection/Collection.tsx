@@ -4,15 +4,16 @@ import { IPreviewPhoto } from "../../api/types";
 import styles from "./Collection.module.scss";
 
 interface IProps {
+	id: string;
 	title: string;
 	totalPhotos: number;
 	name: string;
 	photos: IPreviewPhoto[];
 }
 
-const Collection = ({ title, totalPhotos, name, photos }: IProps) => (
+const Collection = ({ id, title, totalPhotos, name, photos }: IProps) => (
 	<div>
-		<NavLink className={styles.link} to="/">
+		<NavLink className={styles.link} to={`/collections/${id}`}>
 			<div className={styles.images}>
 				<div className={styles.grid}>
 					{Array.from(Array(3), (_, i) => (

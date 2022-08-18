@@ -3,13 +3,15 @@ import editorialPhotos from "./editorialPhotos/editorialPhotosSlice";
 import topic from "./topic";
 import search from "./search";
 import photoDetails from "./photoDetails/photoDetailsSlice";
+import collection from "./collection";
 
 const store = configureStore({
 	reducer: {
 		editorialPhotos,
 		topic,
 		search,
-		photoDetails
+		photoDetails,
+		collection
 	}
 });
 

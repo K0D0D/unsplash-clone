@@ -33,6 +33,7 @@ const Collections = ({
 			{collections?.length
 				? collections.map((collection, index) => (
 						<Collection
+							id={collection.id}
 							title={collection.title}
 							totalPhotos={collection.total_photos}
 							name={collection.user.name}

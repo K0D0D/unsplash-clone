@@ -10,6 +10,7 @@ const RelatedCollections = ({ collections }: IProps) => (
 	<div className={styles.collections}>
 		{collections.map((collection) => (
 			<Collection
+				id={collection.id}
 				photos={collection.preview_photos}
 				title={collection.title}
 				totalPhotos={collection.total_photos}

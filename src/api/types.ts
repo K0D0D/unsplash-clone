@@ -60,3 +60,8 @@ export interface IPhotoDetails extends IPhoto {
 	views: number;
 	downloads: number;
 }
+
+export interface ICollectionDetails extends ICollection {
+	description: string | null;
+	cover_photo: IPhoto;
+}

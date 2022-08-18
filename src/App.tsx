@@ -5,6 +5,7 @@ import Header from "./components/Header/Header";
 import PhotoModal from "./components/PhotoModal/PhotoModal";
 import Toast from "./components/Toast/Toast";
 import useScrollToTop from "./hooks/useScrollToTop";
+import CollectionPage from "./pages/CollectionPage/CollectionPage";
 import HomePage from "./pages/HomePage/HomePage";
 import SearchPage from "./pages/SearchPage/SearchPage";
 import TopicPage from "./pages/TopicPage/TopicPage";
@@ -26,6 +27,7 @@ const App = () => {
 				<Route path="/" element={<HomePage />} />
 				<Route path="/t/:slug" element={<TopicPage />} />
 				<Route path="/s/:type" element={<SearchPage />} />
+				<Route path="/collections/:id" element={<CollectionPage />} />
 				<Route path="*" element={<Navigate to="/" />} />
 			</Routes>
 			<Footer />
