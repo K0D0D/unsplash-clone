@@ -4,6 +4,7 @@ import topic from "./topic";
 import search from "./search";
 import photoDetails from "./photoDetails/photoDetailsSlice";
 import collection from "./collection";
+import user from "./user";
 
 const store = configureStore({
 	reducer: {
@@ -11,7 +12,8 @@ const store = configureStore({
 		topic,
 		search,
 		photoDetails,
-		collection
+		collection,
+		user
 	}
 });
 

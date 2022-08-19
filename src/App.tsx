@@ -9,6 +9,7 @@ import CollectionPage from "./pages/CollectionPage/CollectionPage";
 import HomePage from "./pages/HomePage/HomePage";
 import SearchPage from "./pages/SearchPage/SearchPage";
 import TopicPage from "./pages/TopicPage/TopicPage";
+import UserPage from "./pages/UserPage/UserPage";
 
 const App = () => {
 	const { pathname } = useLocation();
@@ -28,6 +29,7 @@ const App = () => {
 				<Route path="/t/:slug" element={<TopicPage />} />
 				<Route path="/s/:type" element={<SearchPage />} />
 				<Route path="/collections/:id" element={<CollectionPage />} />
+				<Route path="/users/:username/:type" element={<UserPage />} />
 				<Route path="*" element={<Navigate to="/" />} />
 			</Routes>
 			<Footer />

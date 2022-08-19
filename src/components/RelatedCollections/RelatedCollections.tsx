@@ -15,6 +15,7 @@ const RelatedCollections = ({ collections }: IProps) => (
 				title={collection.title}
 				totalPhotos={collection.total_photos}
 				name={collection.user.name}
+				username={collection.user.username}
 				key={collection.id}
 			/>
 		))}

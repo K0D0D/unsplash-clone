@@ -15,7 +15,7 @@ interface IProps {
 const UserCard = ({ name, username, photos, profilePic }: IProps) => (
 	<div className={styles.container}>
 		<div className={styles.profile}>
-			<NavLink className={styles.left} to="/">
+			<NavLink className={styles.left} to={`/users/${username}/photos`}>
 				<img className={styles.avatar} src={profilePic} alt="" />
 				<div className={styles.info}>
 					<p className={styles.name}>{name}</p>
@@ -27,7 +27,7 @@ const UserCard = ({ name, username, photos, profilePic }: IProps) => (
 			</Button>
 		</div>
 		{!!photos.length && (
-			<NavLink className={styles.images} to="/">
+			<NavLink className={styles.images} to={`/users/${username}/photos`}>
 				{Array.from(Array(3), (_, i) => (
 					<div className={styles.imageContainer} key={i}>
 						{photos[i] && (
@@ -49,7 +49,7 @@ const UserCard = ({ name, username, photos, profilePic }: IProps) => (
 				))}
 			</NavLink>
 		)}
-		<NavLink className={styles.viewProfile} to="/">
+		<NavLink className={styles.viewProfile} to={`/users/${username}/photos`}>
 			View profile
 		</NavLink>
 	</div>

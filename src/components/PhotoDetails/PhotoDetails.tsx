@@ -37,7 +37,7 @@ const PhotoDetails = () => {
 		<>
 			<header className={styles.header}>
 				<div className={styles.left}>
-					<NavLink to="/">
+					<NavLink to={`/users/${data.user.username}/photos`}>
 						<img
 							className={styles.avatar}
 							src={data.user.profile_image.small}
@@ -45,10 +45,16 @@ const PhotoDetails = () => {
 						/>
 					</NavLink>
 					<div className={styles.userInfo}>
-						<NavLink className={styles.name} to="/">
+						<NavLink
+							className={styles.name}
+							to={`/users/${data.user.username}/photos`}
+						>
 							{data.user.name}
 						</NavLink>
-						<NavLink className={styles.username} to="/">
+						<NavLink
+							className={styles.username}
+							to={`/users/${data.user.username}/photos`}
+						>
 							@{data.user.username}
 						</NavLink>
 					</div>

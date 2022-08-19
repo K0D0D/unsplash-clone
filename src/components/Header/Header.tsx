@@ -11,6 +11,7 @@ import SearchNav from "../SearchNav/SearchNav";
 const Header = () => {
 	const [inputValue, setInputValue] = useState<string>("");
 	const [isItSearchPage, setIsItSearchPage] = useState<boolean>(false);
+	const [isItUserPage, setIsItUserPage] = useState<boolean>(false);
 	const [isItCollectionPage, setIsItCollectionPage] = useState<boolean>(false);
 	const [searchParams] = useSearchParams();
 	const navigate = useNavigate();
@@ -33,6 +34,10 @@ const Header = () => {
 			pathname.includes("/collections/") && !pathname.includes("/s/")
 		);
 	}, [pathname, isItCollectionPage]);
+
+	useLayoutEffect(() => {
+		setIsItUserPage(pathname.includes("/users/") && !pathname.includes("/s/"));
+	}, [pathname, isItUserPage]);
 
 	const onChange = (e: ChangeEvent<HTMLInputElement>) => {
 		setInputValue(e.target.value);
@@ -94,7 +99,9 @@ const Header = () => {
 					<FiMenu />
 				</button>
 			</nav>
-			{!isItCollectionPage && (isItSearchPage ? <SearchNav /> : <Topics />)}
+			{!isItCollectionPage && !isItUserPage && (
+				isItSearchPage ? <SearchNav /> : <Topics />
+			)}
 		</header>
 	);
 };

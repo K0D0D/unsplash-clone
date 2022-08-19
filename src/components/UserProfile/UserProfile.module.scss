@@ -1,0 +1,83 @@
+@import "../../styles/vars";
+
+.inner {
+	padding: 8em 0.8em 4.8em 0.8em;
+	display: flex;
+	justify-content: center;
+	font-size: 0.93em;
+}
+
+.left {
+	flex: 1 1 0;
+	display: flex;
+	padding-right: 2.13em;
+	justify-content: flex-end;
+}
+
+.right {
+	flex: 2.3 1 0;
+	padding-left: 1.6em;
+}
+
+.avatar {
+	width: 10em;
+	height: 10em;
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+.name {
+	font-size: 2.66em;
+	font-weight: 700;
+}
+
+.nameSkeleton {
+	max-width: 20em;
+	height: 2.5em;
+}
+
+.bio {
+	margin-top: 1.6em;
+	margin-bottom: 1.2em;
+	line-height: 1.6em;
+	white-space: pre-line;
+	max-width: 70%;
+}
+
+.location {
+	position: relative;
+	padding-left: 1.5em;
+	margin-bottom: 1.2em;
+	color: $gray;
+	svg {
+		position: absolute;
+		left: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 1em;
+		height: 1em;
+	}
+}
+
+.subtitle {
+	margin-top: 1.3em;
+	margin-bottom: 1.1em;
+}
+
+.tags {
+	display: flex;
+	flex-wrap: wrap;
+	margin: -0.28em;
+}
+
+.tag {
+	color: $gray;
+	background-color: #eee;
+	font-size: 0.93em;
+	padding: 0.36em 0.57em;
+	margin: 0.28em;
+	text-transform: capitalize;
+	&:first-child {
+		margin-right: 0.57em;
+	}
+}

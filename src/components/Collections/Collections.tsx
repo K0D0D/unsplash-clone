@@ -38,6 +38,7 @@ const Collections = ({
 							totalPhotos={collection.total_photos}
 							name={collection.user.name}
 							photos={collection.preview_photos}
+							username={collection.user.username}
 							key={`${collection.id}_${index}`}
 						/>
 				  ))

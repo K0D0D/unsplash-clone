@@ -26,7 +26,7 @@ interface IProps {
 
 const Photo = ({ id, width, height, urls, color, blurhash, alt, user }: IProps) => {
 	const [searchParams, setSearchParams] = useSearchParams();
-	
+
 	const downloadImage = () => saveAs(urls.full, `${user.username}-${id}-unflash.jpg`);
 
 	const setPhotoIdParam = () => {
@@ -57,14 +57,17 @@ const Photo = ({ id, width, height, urls, color, blurhash, alt, user }: IProps) 
 			</header>
 			<footer className={styles.footer}>
 				<div className={styles.user}>
-					<NavLink to="/">
+					<NavLink to={`/users/${user.username}/photos`}>
 						<img
 							className={styles.profilePic}
 							src={user.profilePic}
 							alt="user profile"
 						/>
 					</NavLink>
-					<NavLink className={styles.name} to="/">
+					<NavLink
+						className={styles.name}
+						to={`/users/${user.username}/photos`}
+					>
 						{user.name}
 					</NavLink>
 				</div>

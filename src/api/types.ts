@@ -65,3 +65,15 @@ export interface ICollectionDetails extends ICollection {
 	description: string | null;
 	cover_photo: IPhoto;
 }
+
+export interface IUserDetails extends IUser {
+	first_name: string;
+	bio: string | null;
+	location: string | null;
+	total_collections: number;
+	total_likes: number;
+	total_photos: number;
+	tags: {
+		custom: { title: string }[];
+	};
+}

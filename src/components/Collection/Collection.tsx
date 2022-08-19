@@ -9,9 +9,10 @@ interface IProps {
 	totalPhotos: number;
 	name: string;
 	photos: IPreviewPhoto[];
+	username: string;
 }
 
-const Collection = ({ id, title, totalPhotos, name, photos }: IProps) => (
+const Collection = ({ id, title, totalPhotos, name, photos, username }: IProps) => (
 	<div>
 		<NavLink className={styles.link} to={`/collections/${id}`}>
 			<div className={styles.images}>
@@ -40,7 +41,8 @@ const Collection = ({ id, title, totalPhotos, name, photos }: IProps) => (
 			<span className={styles.title}>{title}</span>
 		</NavLink>
 		<p className={styles.info}>
-			{totalPhotos} photos · Curated by <NavLink to="/">{name}</NavLink>
+			{totalPhotos} photos · Curated by{" "}
+			<NavLink to={`/users/${username}/photos`}>{name}</NavLink>
 		</p>
 	</div>
 );
