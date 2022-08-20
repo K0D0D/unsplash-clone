@@ -30,7 +30,9 @@ const TopicPhotos = () => {
 	const hasMore = useAppSelector(selectTopicPhotosHasMore);
 
 	useEffect(() => {
-		dispatch(clearTopicPhotosData());
+		return () => {
+			dispatch(clearTopicPhotosData());
+		};
 	}, [dispatch, slug]);
 
 	useEffect(() => {

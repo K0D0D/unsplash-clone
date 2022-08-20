@@ -27,7 +27,9 @@ const SearchUsers = () => {
 	const hasMore = useAppSelector(selectSearchUsersHasMore);
 
 	useEffect(() => {
-		dispatch(clearSearchUsersData());
+		return () => {
+			dispatch(clearSearchUsersData());
+		};
 	}, [dispatch, query]);
 
 	useEffect(() => {

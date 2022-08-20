@@ -24,7 +24,9 @@ const EditorialPhotos = () => {
 	const hasMore = useAppSelector(selectEditorialPhotosHasMore);
 
 	useEffect(() => {
-		dispatch(clearEditorialPhotosData());
+		return () => {
+			dispatch(clearEditorialPhotosData());
+		};
 	}, [dispatch]);
 
 	useEffect(() => {

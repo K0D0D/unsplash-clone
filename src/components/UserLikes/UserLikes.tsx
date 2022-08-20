@@ -30,7 +30,9 @@ const UserLikes = () => {
 	const hasMore = useAppSelector(selectUserLikesHasMore);
 
 	useEffect(() => {
-		clearUserLikesData();
+		return () => {
+			dispatch(clearUserLikesData());
+		};
 	}, [dispatch, username]);
 
 	useEffect(() => {

@@ -27,7 +27,9 @@ const SearchPhotos = () => {
 	const hasMore = useAppSelector(selectSearchPhotosHasMore);
 
 	useEffect(() => {
-		dispatch(clearSearchPhotosData());
+		return () => {
+			dispatch(clearSearchPhotosData());
+		};
 	}, [dispatch, query]);
 
 	useEffect(() => {

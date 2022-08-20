@@ -30,7 +30,9 @@ const CollectionPhotos = () => {
 	const hasMore = useAppSelector(selectCollectionPhotosHasMore);
 
 	useEffect(() => {
-		dispatch(clearCollectionPhotosData());
+		return () => {
+			dispatch(clearCollectionPhotosData());
+		};
 	}, [dispatch, id]);
 
 	useEffect(() => {

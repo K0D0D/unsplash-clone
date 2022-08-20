@@ -27,7 +27,9 @@ const SearchCollections = () => {
 	const hasMore = useAppSelector(selectSearchCollectionsHasMore);
 
 	useEffect(() => {
-		dispatch(clearSearchCollectionsData());
+		return () => {
+			dispatch(clearSearchCollectionsData());
+		};
 	}, [dispatch, query]);
 
 	useEffect(() => {

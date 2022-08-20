@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BsFillHeartFill, BsPlusLg, BsThreeDots } from "react-icons/bs";
 import { ImLocation } from "react-icons/im";
 import { MdCameraAlt, MdOutlineCalendarToday } from "react-icons/md";
 import { IoMdShareAlt, IoMdInformationCircle } from "react-icons/io";
 import { AiOutlineSafety } from "react-icons/ai";
 import dayjs from "dayjs";
-import { NavLink } from "react-router-dom";
+import { NavLink, useSearchParams } from "react-router-dom";
 import useAppSelector from "../../hooks/useAppSelector";
 import {
 	selectPhotoDetailsData,
@@ -17,11 +17,24 @@ import styles from "./PhotoDetails.module.scss";
 import { BlurhashCanvas } from "react-blurhash";
 import { saveAs } from "file-saver";
 import PhotoDetailsSkeleton from "./PhotoDetailsSkeleton";
+import useAppDispatch from "../../hooks/useAppDispatch";
+import { fetchPhotoDetails } from "../../store/photoDetails/photoDetailsThunks";
 
 const PhotoDetails = () => {
+	const [searchParams] = useSearchParams();
+	const id = searchParams.get("photo_id") || "";
+	const dispatch = useAppDispatch();
 	const data = useAppSelector(selectPhotoDetailsData);
 	const isLoading = useAppSelector(selectPhotoDetailsIsLoading);
 	const [isImageFullWidth, setIsImageFullWidth] = useState<boolean>(false);
+
+	useEffect(() => {
+		if (!id) return;
+
+		const promise = dispatch(fetchPhotoDetails(id));
+
+		return () => promise.abort();
+	}, [dispatch, id]);
 
 	const changeImageSize = () => setIsImageFullWidth(!isImageFullWidth);
 

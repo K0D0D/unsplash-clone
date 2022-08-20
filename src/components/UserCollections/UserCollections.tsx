@@ -30,7 +30,9 @@ const UserCollections = () => {
 	const hasMore = useAppSelector(selectUserCollectionsHasMore);
 
 	useEffect(() => {
-		dispatch(clearUserCollectionsData());
+		return () => {
+			dispatch(clearUserCollectionsData());
+		};
 	}, [dispatch, username]);
 
 	useEffect(() => {
