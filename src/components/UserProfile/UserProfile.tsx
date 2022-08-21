@@ -49,7 +49,7 @@ const UserProfile = () => {
 						{details.location && (
 							<NavLink
 								className={styles.location}
-								to={`/s/photos/${details.location}`}
+								to={`/s/photos/?q=${details.location}`}
 							>
 								<ImLocation />
 								{details.location}
@@ -62,7 +62,7 @@ const UserProfile = () => {
 									{details.tags.custom.map((tag, index) => (
 										<NavLink
 											className={styles.tag}
-											to={`/s/photos/${tag.title}`}
+											to={`/s/photos/?q=${tag.title}`}
 											key={index}
 										>
 											{tag.title}
