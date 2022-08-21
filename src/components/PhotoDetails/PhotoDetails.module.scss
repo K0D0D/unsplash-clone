@@ -1,4 +1,5 @@
 @import "../../styles/vars";
+@import "../../styles/mixins";
 
 .header {
 	position: sticky;
@@ -10,12 +11,24 @@
 	padding: 0.75em 1em;
 	border-radius: 0.25em 0.25em 0 0;
 	background-color: #fff;
+	@include media($max: "md") {
+		flex-direction: column;
+	}
 }
 
 .left,
 .right {
 	display: flex;
 	align-items: center;
+	@include media($max: "md") {
+		width: 100%;
+	}
+}
+
+.right {
+	@include media($max: "md") {
+		margin-top: 0.5em;
+	}
 }
 
 .avatar {
@@ -62,10 +75,16 @@
 		background-color: #37a866;
 		color: #fff;
 	}
+	@include media($max: "md") {
+		margin-left: auto !important;
+	}
 }
 
 .imageWrapper {
 	padding: 0.625em 1em;
+	@include media($max: "md") {
+		padding: 0;
+	}
 }
 
 .fullWidth {
@@ -82,10 +101,16 @@
 	display: flex;
 	width: 100%;
 	cursor: zoom-in;
+	@include media($max: "md") {
+		cursor: default;
+	}
 }
 
 .fullWidth .imageInner {
 	cursor: zoom-out;
+	@include media($max: "md") {
+		cursor: default;
+	}
 }
 
 .image,
@@ -109,6 +134,12 @@
 		"stats actions"
 		"details description";
 	grid-template-columns: max-content 1fr;
+	@include media($max: 991px) {
+		grid-template:
+			"stats actions"
+			"details details"
+			"description description"
+	}
 }
 
 .stats {
@@ -116,6 +147,10 @@
 	display: grid;
 	grid-template-columns: repeat(2, minmax(min-content, 11.43em));
 	column-gap: 1.71em;
+	@include media($max: "md") {
+		grid-template-columns: repeat(1, minmax(min-content, 11.43em));
+		row-gap: 1em;
+	}
 }
 
 .statTitle {
@@ -143,8 +178,16 @@
 		width: 1.6em;
 		height: 1.6em;
 	}
-	&:not(:last-child) svg {
-		margin-right: 0.57em;
+	@include media($min: "md") {
+		&:not(:last-child) svg {
+			margin-right: 0.57em;
+		}
+	}
+}
+
+.actionBtnText {
+	@include media($max: "md") {
+		display: none;
 	}
 }
 
@@ -183,6 +226,9 @@
 	grid-area: description;
 	line-height: 1.6em;
 	max-width: 42.8em;
+	@include media($min: "md") {
+		max-width: 42.8em;
+	}
 }
 
 .wrapper {

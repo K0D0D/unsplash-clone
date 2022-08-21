@@ -1,3 +1,5 @@
+@import "../../styles/mixins";
+
 .inner {
 	display: flex;
 	margin-left: -1.5em;
@@ -11,8 +13,4 @@
 	&:not(:first-child) {
 		margin-top: 1.5em;
 	}
-}
-
-.modalContent {
-	padding: 1em 7.5em 6.25em 7.5em;
 }

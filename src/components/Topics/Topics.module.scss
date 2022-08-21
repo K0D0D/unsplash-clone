@@ -1,10 +1,14 @@
 @import "../../styles/vars";
+@import "../../styles/mixins";
 
 .nav {
     display: flex;
 	align-items: center;
 	padding: 0 1.43em;
 	color: $gray;
+    @include media($max: "md") {
+		padding: 0 0.85em;
+	}
 }
 
 .topics {
@@ -13,6 +17,9 @@
     overflow-x: hidden;
     &:first-child {
         min-width: fit-content;
+        @include media($max: "md") {
+            display: none;
+        }
     }
 }
 
@@ -46,4 +53,7 @@
     height: 2em;
     margin: 0 1.7em;
     background-color: $light-gray;
+    @include media($max: "md") {
+        display: none;
+    }
 }

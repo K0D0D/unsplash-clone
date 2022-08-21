@@ -1,4 +1,5 @@
 @import "../../styles/vars";
+@import "../../styles/mixins";
 
 .gap {
     width: 100%;
@@ -12,6 +13,9 @@
 	align-items: center;
 	padding: 0 1.43em;
 	color: $gray;
+    @include media($max: "md") {
+		padding: 0 0.85em;
+	}
 }
 
 .link {
@@ -30,6 +34,9 @@
         height: 1.28em;
         margin-right: 0.57em;
         transition: 0.1s;
+        @include media($max: "md") {
+            display: none;
+        }
     }
 }
 

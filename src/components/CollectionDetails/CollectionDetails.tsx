@@ -66,7 +66,7 @@ const CollectionInfo = () => {
 							<div className={styles.right}>
 								<Button className={styles.button} variant="outlined">
 									<IoMdShareAlt />
-									Share
+									<span className={styles.buttonText}>Share</span>
 								</Button>
 								<Button className={styles.button} variant="outlined">
 									<BsThreeDots />

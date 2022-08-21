@@ -1,4 +1,5 @@
 @import "../../styles/vars";
+@import "../../styles/mixins";
 
 .inner {
 	position: relative;
@@ -31,6 +32,10 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	@include media($max: "md") {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
 
 .right {
@@ -42,17 +47,27 @@
 	line-height: 1.2;
 	margin-bottom: 0.35em;
 	font-weight: 700;
+	@include media($max: "md") {
+        font-size: 1.75em;
+        margin-bottom: 0.4em;
+    }
 }
 
 .description {
 	font-size: 1.125em;
 	line-height: 1.6;
+	@include media($max: "md") {
+        font-size: 0.93em;
+    }
 }
 
 .user {
     margin-top: 1.4em;
 	display: flex;
 	align-items: center;
+	@include media($max: "md") {
+        margin-bottom: 0.8em;
+    }
 }
 
 .avatar {
@@ -88,5 +103,11 @@
 	}
 	&:not(:first-child) {
 		margin-left: 0.57em;
+	}
+}
+
+.buttonText {
+	@include media($max: "md") {
+		display: none;
 	}
 }

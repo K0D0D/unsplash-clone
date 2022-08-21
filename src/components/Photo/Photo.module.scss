@@ -1,3 +1,5 @@
+@import "../../styles/mixins";
+
 .container {
 	font-size: 0.93em;
 	position: relative;
@@ -12,7 +14,9 @@
 }
 
 .container:hover .image {
-	filter: brightness(75%);
+	@include media($min: "md") {
+		filter: brightness(75%);
+	}
 }
 
 .header,
@@ -22,9 +26,11 @@
 	padding: 1.2em;
 	display: flex;
 	align-items: center;
-	visibility: hidden;
-	opacity: 0;
-	transition: opacity 0.1s, visibility 0s 0.1s;
+	@include media($min: "md") {
+		visibility: hidden;
+		opacity: 0;
+		transition: opacity 0.1s, visibility 0s 0.1s;
+	}
 }
 
 .header {

@@ -1,4 +1,5 @@
 @import "../../styles/vars";
+@import "../../styles/mixins";
 
 .hero {
 	width: 100%;
@@ -8,18 +9,31 @@
 	background-size: cover;
 	background-position: center bottom;
 	background-color: $gray;
+	@include media($max: "md") {
+		margin-top: 7em;
+	}
 }
 
 .inner {
 	width: 66.66667%;
     padding: 9em 0 15.6em 0;
 	margin: 0 auto;
+	@include media($max: "md") {
+		width: 100%;
+		padding: 5.5em 0 8.7em 0;
+	}
+	@include media($max: "xs") {
+		padding: 3em 0 6.3em 0;
+	}
 }
 
 .title {
 	font-size: 2.875em;
 	font-weight: 700;
 	color: #fff;
+	@include media($max: "md") {
+		font-size: 1.5em;
+	}
 }
 
 .text {
@@ -27,6 +41,10 @@
 	margin-top: 0.88em;
 	line-height: 1.7em;
 	color: #fff;
+	@include media($max: "md") {
+		font-size: 0.93em;
+		margin-top: 0.55em;
+	}
 }
 
 .form {
@@ -39,6 +57,9 @@
 	}
 	&:focus-within {
 		box-shadow: 0 0 0 0.3em #0003;
+	}
+	@include media($max: "md") {
+		display: none;
 	}
 }
 

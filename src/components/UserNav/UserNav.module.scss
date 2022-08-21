@@ -1,4 +1,5 @@
 @import "../../styles/vars";
+@import "../../styles/mixins";
 
 .nav {
 	display: flex;
@@ -8,6 +9,9 @@
     padding: 0 1.2em;
     margin-bottom: 4em;
     border-bottom: 1px solid $light-gray;
+    @include media($max: "md") {
+		padding: 0 0.85em;
+	}
 }
 
 .link {
@@ -26,11 +30,17 @@
         height: 1.2em;
         margin-right: 0.57em;
         transition: 0.1s;
+        @include media($max: "md") {
+            display: none;
+        }
     }
 }
 
 .number {
     margin-left: 0.3em;
+    @include media($max: "md") {
+        display: none;
+    }
 }
 
 .active {

@@ -41,7 +41,7 @@ const PhotoDetails = () => {
 	const downloadPhoto = () => {
 		if (!data) return;
 
-		saveAs(data.urls.regular, `${data.user.username}-${data.id}-unflash.jpg`);
+		saveAs(data.urls.full, `${data.user.username}-${data.id}-unflash.jpg`);
 	};
 
 	if (!data || isLoading) return <PhotoDetailsSkeleton />;
@@ -146,14 +146,14 @@ const PhotoDetails = () => {
 						variant="outlined"
 					>
 						<IoMdShareAlt />
-						Share
+						<span className={styles.actionBtnText}>Share</span>
 					</Button>
 					<Button
 						className={`${styles.button} ${styles.actionBtn}`}
 						variant="outlined"
 					>
 						<IoMdInformationCircle />
-						Info
+						<span className={styles.actionBtnText}>Info</span>
 					</Button>
 					<Button
 						className={`${styles.button} ${styles.actionBtn}`}
